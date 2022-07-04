@@ -57,7 +57,9 @@ module.exports = (env, argv) => {
         filename: './index.html'
       }),
       new MiniCssExtractPlugin({
-        filename: '[name].[contenthash].css'
+        filename: isProduction
+          ? '[name].[contenthash].css'
+          : 'main.css'
       })
     ],
     devServer: {
